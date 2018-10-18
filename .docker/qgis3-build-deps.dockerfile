@@ -34,6 +34,7 @@ RUN  apt-get update \
     libproj-dev \
     libqca-qt5-2-dev \
     libqca-qt5-2-plugins \
+    libqt53dextras5 \
     libqt53drender5 \
     libqt5concurrent5 \
     libqt5opengl5-dev \
