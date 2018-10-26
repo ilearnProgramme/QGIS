@@ -241,7 +241,12 @@ inline QString qgsDoubleToString( double a, int precision = 17 )
   if ( precision )
     return QString::number( a, 'f', precision ).remove( QRegularExpression( "\\.?0+$" ) );
   else
+#if QT_VERSION > QT_VERSION_CHECK( 5, 10, 0 )
+    // see https://bugreports.qt.io/browse/QTBUG-71439
     return QString::number( a, 'f', precision ).replace( QRegularExpression( "^-0$" ), QLatin1Literal( "0" ) );
+#else
+    return QString::number( a, 'f', precision );
+#endif
 }
 
 /**
